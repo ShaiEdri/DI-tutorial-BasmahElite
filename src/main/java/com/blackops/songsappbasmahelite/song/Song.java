@@ -1,5 +1,6 @@
 package com.blackops.songsappbasmahelite.song;
 
+import com.blackops.songsappbasmahelite.producer.Producer;
 import com.blackops.songsappbasmahelite.singer.Singer;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
@@ -27,6 +28,8 @@ public class Song {
     joinColumns = @JoinColumn(name = "song_id"),
     inverseJoinColumns = @JoinColumn(name = "singer_id"))
     private List<Singer> singers = new ArrayList<>();
+    @ManyToOne
+    private Producer producer;
 
     @Override
     public boolean equals(Object o) {
